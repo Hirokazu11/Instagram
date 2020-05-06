@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      params[:session][:remember_me]=='1'? remember(user):forget(user)
+      params[:session][:remember_me]=='1' ? remember(user) : forget(user)
       flash[:success] = "ログインできました"
-      redirect_to user
+      redirect_back_or user
     else
       flash.now[:danger] = "入力情報が正しくないです"
       render 'new'

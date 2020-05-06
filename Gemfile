@@ -7,6 +7,9 @@ ruby '2.6.3'
 gem 'rails', '=5.2.3'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma', '~> 3.11'
+gem 'faker',          '1.7.3'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
