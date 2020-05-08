@@ -88,4 +88,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
   
+  test "asspciated microposts should be destroyed" do
+    @user.save
+    @user.microposts.create!(content:"test")
+    assert_difference 'Micropost.count',-1 do
+      @user.destroy
+    end  
+  end 
+  
 end
