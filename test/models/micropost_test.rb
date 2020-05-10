@@ -4,6 +4,8 @@ class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     @micropost = @user.microposts.build(content:"test")
+    @other_user = users(:archer)
+    @other_micropost = @other_user.microposts.build(content:"いいねしてね")
   end 
   
   test "should be valid" do
@@ -27,6 +29,13 @@ class MicropostTest < ActiveSupport::TestCase
   
   test "order should be most recent first" do
     assert_equal microposts(:most_recent),Micropost.first
-  end  
+  end
   
+  # test "should iine and uniine a user " do
+  #   assert_not @other_micropost.iine?(@user)
+  #   @other_micropost.iine(@user)
+  #   assert @other_micropost.iine?(@user)
+  #   @other_micropost.uniine(@user)
+  #   assert_not @other_micropost.iine?(@user)
+  # end  
 end
