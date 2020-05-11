@@ -1,0 +1,7 @@
+<%= form_with(model: [@micropost, @comment], local: true) do |f| %>
+    <%= render 'shared/error_messages',object: f.object %>
+    <div class="field">
+      <%= f.text_area :content,placeholder: "" %>    
+    </div>
+    <%= f.submit "コメントする", class: "btn btn-primary" %>
+<% end %>

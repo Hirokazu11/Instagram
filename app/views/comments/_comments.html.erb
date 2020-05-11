@@ -1,0 +1,23 @@
+<!--css適用させるためmicropostsクラスにする-->
+<div class="microposts">
+  <ul class="list-unstyled">
+    <% @comments.each do |comment| %>
+      <li class="media mb-3">
+        <%= link_to gravatar_for(comment.user,size: 50),user_path(comment.user) %>
+        <span class="user">
+          <%= link_to comment.user.name,user_path(comment.user) %>
+        </span>
+        <span class="content">
+          <%= comment.content %>
+        </span>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(comment.created_at) %> ago.
+          <% if current_user?(comment.user) %>
+            <%= link_to "delete",micropost_comment_path(@micropost, comment),method: :delete,
+                                data: {confirm: "本当に削除しますか?"} %>
+          <% end %>                      
+        </span>
+      </li>
+    <% end %>  
+  </ul>
+</div>

@@ -1,14 +1,12 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only:[:create, :destroy]
+  before_action :logged_in_user, only:[:show, :create, :destroy]
   before_action :correct_user, only: :destroy
   
   def show
     @micropost = Micropost.find_by(id: params[:id])
-    if @micropost.nil?
-      render 'static_pages/home'
-    else
-      @user = User.find_by(id: @micropost.user_id)
-    end
+    @user = User.find_by(id: @micropost.user_id)
+    @comments = @micropost.comments.includes(:user).all
+    @comment = @micropost.comments.build(user_id: current_user.id) if current_user
   end 
   
   def create
