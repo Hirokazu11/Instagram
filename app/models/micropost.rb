@@ -19,7 +19,16 @@ class Micropost < ApplicationRecord
   
   def iine?(user)
    self.iine_users.include?(user)
-  end  
+  end
+  
+  def self.search(search)
+    if search
+      Micropost.where(['content LIKE ?', "%#{search}%"])
+    else
+      Micropost.all
+    end  
+  end
+  
   
   private
     
