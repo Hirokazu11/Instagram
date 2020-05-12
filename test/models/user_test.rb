@@ -90,7 +90,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "asspciated microposts should be destroyed" do
     @user.save
-    @user.microposts.create!(content:"test")
+    @user.microposts.create!(content:"test",picture: open("#{Rails.root}/test/fixtures/instagram.png"))
     assert_difference 'Micropost.count',-1 do
       @user.destroy
     end  

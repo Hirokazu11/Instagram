@@ -4,7 +4,6 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "ヘルプ", help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "通知", "#" %></li>
           <li><%= link_to "ユーザー一覧", users_path %></li>
@@ -19,10 +18,15 @@
               <li><%= link_to "ログアウト", logout_path,method: :delete %></li>
             </ul>
           </li>
+          <div class="nav">
+            <%= render "shared/search" %>
+          </div>
         <% else %>
           <li><%= link_to "ログイン",login_path %></li>
         <% end %>
+        
       </ul>
+      
     </nav>
   </div>
 </header>

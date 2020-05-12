@@ -1,11 +1,8 @@
 <% provide(:title, "ユーザー一覧") %>
-<% provide(:path, users_path) %>
 
 <h1>ユーザー一覧</h1>
 <%= will_paginate %>
 <ul class="users">
-  <!--searchパーシャル呼出-->
-  <%= render 'users/search' %>
   <% @users.each do |user| %>
   <%= render user %> 
   <% end %>

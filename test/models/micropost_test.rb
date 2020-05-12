@@ -3,7 +3,7 @@ require 'test_helper'
 class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @micropost = @user.microposts.build(content:"test")
+    @micropost = @user.microposts.build(content:"test",picture: open("#{Rails.root}/test/fixtures/instagram.png"))
     @other_user = users(:archer)
     @other_micropost = @other_user.microposts.build(content:"いいねしてね")
   end 
