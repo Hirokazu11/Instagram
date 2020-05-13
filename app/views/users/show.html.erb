@@ -1,7 +1,7 @@
 <% provide(:title,@user.name) %>
 
-<div class="row">
-  <aside class="col-md-4">
+<div class="user-profile">
+  <aside class="col-md-12">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -12,14 +12,27 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
-  <div class = "col-md-8">
+</div>  
+<div class = "container">
+  <div class = "row">  
     <%= render'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
+      <% @user.microposts.each do |micropost| %>
+        <ol class="col-sm-4 micropost_picture">  
+          <span class="picture">
+            <%= link_to image_tag(micropost.picture.url), micropost_path(micropost) %>
+          </span>
+          <span class="timestamp">
+            Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+            <% if current_user?(micropost.user) %>
+              <%= link_to "delete",micropost,method: :delete,
+                                  data: {confirm: "本当に削除しますか?"} %>
+            <% end %>                      
+          </span>
+        </ol>
+      <% end %>  
       <%= will_paginate @microposts %>
     <% end %>
-  </div>
+  </div>  
 </div>

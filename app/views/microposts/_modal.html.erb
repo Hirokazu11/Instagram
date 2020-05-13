@@ -1,0 +1,19 @@
+<div class="modal" id="micropostModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--モーダルヘッダー-->
+      <div class="modal-header">
+        <h5 class="modal-title"> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--モーダル本文-->
+      <div class="modal-body">
+        <%= render @micropost %>
+        <%= render 'comments/form', micropost: @micropost %>
+        <%= render 'comments/comments', micropost: @micropost %>
+      </div>
+    </div>
+  </div>
+</div>
