@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
@@ -81,6 +82,13 @@ p {
 .nav {
   width: 500px;
   margin-top: 5px;
+}
+
+.notification-circle {
+  position: absolute;
+  top:0;
+  right:0;
+  color: yellow;
 }
 
 /* miscellaneous */

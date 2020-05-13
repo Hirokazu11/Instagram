@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_122514) do
+ActiveRecord::Schema.define(version: 2020_05_13_000935) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 2020_05_10_122514) do
     t.string "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "micropost_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["micropost_id"], name: "index_notifications_on_micropost_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visiter_id"], name: "index_notifications_on_visiter_id"
   end
 
   create_table "relationships", force: :cascade do |t|

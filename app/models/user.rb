@@ -14,6 +14,12 @@ class User < ApplicationRecord
     through: :passive_relationships, 
      source: :follower
   has_many :likes, dependent: :destroy
+  has_many :active_notifications, class_name: "Notification",
+                   foreign_key: "visiter_id",
+                   dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification",
+                   foreign_key: "visited_id",
+                   dependent: :destroy
     
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
@@ -71,6 +77,20 @@ class User < ApplicationRecord
   def following?(other_user)
     self.following.include?(other_user)
   end  
+  
+  def create_notification_follow_by(current_user)
+    # すでにフォローされてるか検索
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ", 
+                              current_user.id, id, "follow"])
+    # フォローされていない場合のみ通知レコード作成
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: "follow"
+      )
+      notification.save if notification.valid?
+    end
+  end
   
   def self.search(search)
     if search
