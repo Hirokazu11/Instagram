@@ -15,21 +15,12 @@
 </div>  
 <div class = "container">
   <div class = "row">  
-    <%= render'follow_form' if logged_in? %>
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <% @user.microposts.each do |micropost| %>
-        <ol class="col-sm-4 micropost_picture">  
-          <span class="picture">
-            <%= link_to image_tag(micropost.picture.url), micropost_path(micropost) %>
-          </span>
-          <span class="timestamp">
-            Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-            <% if current_user?(micropost.user) %>
-              <%= link_to "delete",micropost,method: :delete,
-                                  data: {confirm: "本当に削除しますか?"} %>
-            <% end %>                      
-          </span>
+        <ol class="col-sm-4">  
+         <%= render 'microposts/modal', micropost: micropost %>
         </ol>
       <% end %>  
       <%= will_paginate @microposts %>

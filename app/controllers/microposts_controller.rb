@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find_by(id: params[:id])
     @user = User.find_by(id: @micropost.user_id)
     @comments = @micropost.comments.includes(:user).all
-    @comment = @micropost.comments.build(user_id: current_user.id) if current_user
+    @comment = Comment.new
   end 
   
   def create
