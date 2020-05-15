@@ -1,4 +1,4 @@
-<li id="micropost-<%= micropost.id %>">
+<div id="micropost-<%= micropost.id %>">
   <button type="button" class="btn" data-toggle="modal" data-target="#postModal-<%= micropost.id %>">
     <%= image_tag(micropost.picture.url) %>
   </button>
@@ -10,14 +10,17 @@
     <% end %>                      
   </span>
   <%= render "likes/like", micropost: micropost %>
-</li>
+</div>
 
 <div class="modal" id="postModal-<%= micropost.id %>"  role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <!--モーダルヘッダー-->
       <div class="modal-header">
-        <h5 class="modal-title"><%= micropost.content %></h5>
+        <h5 class="modal-title">
+          <%= gravatar_for micropost.user %>
+          <%= micropost.content %>
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -25,9 +28,8 @@
       <!--モーダル本文-->
       <div class="modal-body">
         <%= image_tag(micropost.picture.url) %>
-        <%= micropost.content %>
-        
-        
+        <%= render 'comments/comments', comments: micropost.comments, micropost: micropost %>
+        <%= render 'comments/form', comment: @comment, micropost: micropost %>
       </div>
     </div>
   </div>

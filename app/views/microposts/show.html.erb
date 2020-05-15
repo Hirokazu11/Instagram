@@ -2,7 +2,7 @@
   <ol class="microposts">
     <%= render @micropost %>
   </ol>
-  <%= render 'comments/form', micropost: @micropost %>
-  <%= render 'comments/comments', micropost: @micropost %>
+  <%= render 'comments/form', comment: @comment, micropost: @micropost %>
+  <%= render 'comments/comments', comments: @micropost.comments, micropost: @micropost %>
 </div>
   

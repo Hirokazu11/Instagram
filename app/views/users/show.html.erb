@@ -24,7 +24,7 @@
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <% @user.microposts.each do |micropost| %>
+      <% @microposts.each do |micropost| %>
         <ol class="col-sm-4">  
          <%= render 'microposts/modal', micropost: micropost %>
         </ol>
