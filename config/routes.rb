@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   
   root 'static_pages#home'
+  get '/terms',   to: 'static_pages#terms'
   get '/signup',  to: 'users#new'
   post '/signup', to: 'users#create'
   
