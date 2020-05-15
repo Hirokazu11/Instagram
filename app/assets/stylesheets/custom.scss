@@ -204,6 +204,10 @@ input {
     color: $state-danger-text;
   }
 }
+.gender-field {
+  display: flex;
+  width: 20%;
+}
 
 .checkbox {
   margin-top: -10px;
@@ -284,5 +288,4 @@ span.picture {
 .user-profile {
   margin-bottom: 20px;
 }
-
 

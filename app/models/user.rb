@@ -31,6 +31,11 @@ class User < ApplicationRecord
              uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password,presence:true,length:{minimum:6},allow_nil: true
+  validates :website,length:{maximum: 50}
+  validates :introduction,length:{maximum: 150}
+  validates :phone_number,length:{maximum: 12}
+  enum gender: { man: 0, woman: 1}
+  
   
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

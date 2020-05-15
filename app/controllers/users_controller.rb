@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: [:destroy]
   
   def index
     @users = User.paginate(page:params[:page]).search(params[:search])
@@ -44,8 +43,10 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "削除しました"
-    redirect_to users_url
+    unless admin_user
+      flash[:success] = "削除しました"
+      redirect_to users_url  
+    end
   end
   
   def following
@@ -66,7 +67,8 @@ class UsersController < ApplicationController
     
     def user_params
       params.require(:user).permit(:name,:user_name,:email,
-                        :password,:password_confirmation)
+                          :website,:introduction,:phone_number,
+                          :gender,:password,:password_confirmation,)
     end
     
     def correct_user
@@ -76,5 +78,5 @@ class UsersController < ApplicationController
     
     def admin_user
       redirect_to(root_url) unless current_user.admin?
-    end  
+    end
 end

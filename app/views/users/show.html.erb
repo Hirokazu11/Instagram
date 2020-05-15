@@ -12,6 +12,12 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+  <aside class="col-md-8">
+    <section class="user_introduction">
+      <p>Web Site： <%= @user.website %></p>
+      <p>自己紹介： <%= @user.introduction %></p>
+    </section>
+  </aside>  
 </div>  
 <div class = "container">
   <div class = "row">  
@@ -23,13 +29,6 @@
          <%= render 'microposts/modal', micropost: micropost %>
         </ol>
       <% end %>  
-  <div class = "col-md-8">
-    <%= render'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
       <%= will_paginate @microposts %>
     <% end %>
   </div>

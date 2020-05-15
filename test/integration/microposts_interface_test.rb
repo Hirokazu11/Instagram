@@ -21,7 +21,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params:{micropost:{content: content, picture: picture}}
     end
-    assert_redirected_to root_url
+    assert_redirected_to user_url(@user)
     follow_redirect!
     assert_match content,response.body
     #投稿を削除する
