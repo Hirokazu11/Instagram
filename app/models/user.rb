@@ -1,8 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # devise :database_authenticatable, :registerable,
-  #       :recoverable, :rememberable, :validatable, :omniauthable
   has_many :microposts,dependent: :destroy
   has_many :comments
   has_many :active_relationships, class_name: "Relationship",
@@ -36,6 +32,7 @@ class User < ApplicationRecord
              uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password,presence:true,length:{minimum:6},allow_nil: true
+  validates :password,presence:false,on: :facebook_login
   validates :website,length:{maximum: 50}
   validates :introduction,length:{maximum: 150}
   validates :phone_number,length:{maximum: 12}
@@ -131,20 +128,18 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
-  # def self.find_for_oauth(auth)
-  #   user = User.where(uid: auth.uid, provider: auth.provider).first
-  #   unless user
-  #     user = User.new(
-  #       uid:      auth.uid,
-  #       provider: auth.provider,
-  #       email:    auth.info.email,
-  #       password: Devise.friendly_token[0, 20]
-  #     )
-  #     user.save(:validate => false)
-  #   end
-    
-  #   user
-  # end
+  def self.find_or_create_from_auth(auth)
+      provider = auth[:provider]
+      uid = auth[:uid]
+      name = auth[:info][:name]
+      email = auth[:info][:email]
+      
+      self.find_or_create_by(provider: provider, uid: uid) do |user|
+        user.name = name
+        user.email = email
+      end
+  end  
+  
   
   private
     

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  # ログインボタンのリンクは/auth/facebook
+  get '/auth/:provider/callback', to:'sessions#create', as: :auth_callback
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'

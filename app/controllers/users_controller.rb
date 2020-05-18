@@ -18,14 +18,14 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = "あなたのメールをチェックしてアカウントの認証をしてください."
-      redirect_to root_url
-    else
-      render 'new'
-    end
+      @user = User.new(user_params)
+      if @user.save
+        @user.send_activation_email
+        flash[:info] = "あなたのメールをチェックしてアカウントの認証をしてください."
+        redirect_to root_url
+      else
+        render 'new'
+      end
   end
   
   def edit
