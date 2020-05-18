@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
   
   root 'static_pages#home'
   get '/terms',   to: 'static_pages#terms'
+  get '/privacypolicy',   to: 'static_pages#privacypolicy'
   get '/signup',  to: 'users#new'
   post '/signup', to: 'users#create'
   
