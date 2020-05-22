@@ -1,24 +1,19 @@
-# README
+自分が苦労した点
+・エラーになったときの解決策を調べることが一番大変だった。
+  似た症状はあっても全く同じ症状はなかったため、様々な情報を集めてカスタマイズする必要があった。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+未実装機能
+・Facebookログイン機能
+  deviceとチュートリアルのgemが競合してたしまったため、deviceなしのコードを書いた。
+  しかしFacebook of developerの認証をどうしても得られなかっため試すことが出来なかった。
 
-* Ruby version
+・メール送信機能
+  コード実装はできているがsendgridが動かずメール認証できない。
+  herokuに問い合わせたが返信来ず。
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+反省点と課題
+・チュートリアルに頼りすぎてしまった。
+・チュートリアルのテストしか書けなかった。
+・SQLとJSの知識が乏しいと痛感した。
