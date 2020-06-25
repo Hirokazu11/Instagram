@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user
-  
+
   def create
     @micropost = Micropost.find(params[:micropost_id])
     @comment = @micropost.comments.build(comment_params)
@@ -10,13 +10,13 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました"
       redirect_back(fallback_location: root_path)
     else
-      @micropost = Micropost.find(params[:micropost_id]) 
+      @micropost = Micropost.find(params[:micropost_id])
       @comments = @micropost.comments.includes(:user)
       flash.now[:danger] = "コメントできませんでした"
       render 'microposts/show'
     end
   end
-  
+
   def destroy
     @micropost = Micropost.find(params[:micropost_id])
     @comment = @micropost.comments.find_by(id: params[:id])
@@ -26,13 +26,12 @@ class CommentsController < ApplicationController
       redirect_to request.referrer || root_url
     else
       redirect_to root_url
-    end  
+    end
   end
-  
+
   private
-  
+
   def comment_params
     params.require(:comment).permit(:content, :micropost_id, :user_id)
   end
-
 end

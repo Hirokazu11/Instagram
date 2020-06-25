@@ -6,10 +6,10 @@ class CreateRelationships < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    #高速化のインデックス
+    # 高速化のインデックス
     add_index :relationships, :follower_id
     add_index :relationships, :followed_id
-    #一意性のため
-    add_index :relationships,[:follower_id, :followed_id],unique: true
+    # 一意性のため
+    add_index :relationships, [:follower_id, :followed_id], unique: true
   end
 end

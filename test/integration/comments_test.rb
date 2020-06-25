@@ -8,13 +8,12 @@ class CommentsTest < ActionDispatch::IntegrationTest
   end
 
   test "create comment and delete comment" do
-    assert_difference '@micropost.comments.count',1 do
-      post micropost_comments_path(@micropost), params:{ comment: {content: "Comment test" }}
+    assert_difference '@micropost.comments.count', 1 do
+      post micropost_comments_path(@micropost), params: { comment: { content: "Comment test" } }
     end
     comment = @micropost.comments.find_by(content: "Comment test")
-    assert_difference '@micropost.comments.count',-1 do
+    assert_difference '@micropost.comments.count', -1 do
       delete micropost_comment_path(@micropost, comment)
-    end      
-  end  
-  
+    end
+  end
 end

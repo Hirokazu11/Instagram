@@ -12,5 +12,4 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
       delete like_path(likes(:one))
     end
   end
-
 end

@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_05_14_144950) do
-
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
@@ -82,5 +81,4 @@ ActiveRecord::Schema.define(version: 2020_05_14_144950) do
     t.integer "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
 end

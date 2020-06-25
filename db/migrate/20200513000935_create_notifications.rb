@@ -10,9 +10,9 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-      add_index :notifications, :visiter_id
-      add_index :notifications, :visited_id
-      add_index :notifications, :micropost_id
-      add_index :notifications, :comment_id
+    add_index :notifications, :visiter_id
+    add_index :notifications, :visited_id
+    add_index :notifications, :micropost_id
+    add_index :notifications, :comment_id
   end
 end
