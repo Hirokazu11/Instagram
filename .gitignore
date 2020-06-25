@@ -16,6 +16,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/.DS_Store
+db/.DS_Store
 
 # Ignore uploaded files in development
 /storage/*
@@ -23,6 +25,7 @@
 /public/uploads/*
 /node_modules
 /yarn-error.log
+db/fixtures/*
 
 /public/assets
 .byebug_history

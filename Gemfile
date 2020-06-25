@@ -6,7 +6,6 @@ ruby '2.6.3'
 gem 'rails', '>= 5.2.4.3'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma', '~> 3.11'
-gem 'faker', '1.7.3'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 gem 'will_paginate'
@@ -29,6 +28,7 @@ group :development, :test do
   gem 'rubocop-airbnb'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails', '~> 4.10.0'
+  gem 'faker', '1.7.3'
 end
 
 group :development do

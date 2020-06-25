@@ -23,7 +23,7 @@ users = User.order(:created_at).take(6)
   users.each do |user|
     user.microposts.create!(
       content: content,
-      picture: open("#{Rails.root}/test/fixtures/instagram.png")
+      picture: open("#{Rails.root}/db/fixtures/img.png")
     )
   end
 end
