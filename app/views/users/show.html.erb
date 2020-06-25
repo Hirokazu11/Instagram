@@ -1,4 +1,4 @@
-<% provide(:title,@user.name) %>
+<% provide(:title, @user.name) %>
 
 <div class="row">
   <aside class="col-md-4">
@@ -17,18 +17,18 @@
       <p>Web Site： <%= @user.website %></p>
       <p>自己紹介： <%= @user.introduction %></p>
     </section>
-  </aside>  
-</div>  
-<div class = "container">
-  <div class = "row">  
+  </aside>
+</div>
+<div class="container">
+  <div class="row">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <% @microposts.each do |micropost| %>
-        <ol class="col-sm-4">  
-         <%= render 'microposts/modal', micropost: micropost %>
+        <ol class="col-sm-4">
+        <%= render 'microposts/modal', micropost: micropost %>
         </ol>
-      <% end %>  
+      <% end %>
       <%= will_paginate @microposts %>
     <% end %>
   </div>

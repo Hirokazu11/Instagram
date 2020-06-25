@@ -4,7 +4,7 @@
     <section class="user_info">
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "プロフィール",@user %></span>
+      <span><%= link_to "プロフィール", @user %></span>
       <span><b>投稿数 </b><%= @user.microposts.count %></span>
     </section>
     <section class="stats">
@@ -12,10 +12,10 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user,size: 30),user %>
-          <% end %>  
+            <%= link_to gravatar_for(user,size: 30), user %>
+          <% end %>
         </div>
-      <% end %>  
+      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
@@ -25,6 +25,6 @@
         <%= render @users %>
       </ul>
       <%= will_paginate %>
-    <% end %>  
+    <% end %>
   </div>
 </div>

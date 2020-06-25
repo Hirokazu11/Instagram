@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました"
       redirect_back(fallback_location: root_path)
     else
-      @micropost = Micropost.find(params[:micropost_id])
       @comments = @micropost.comments.includes(:user)
       flash.now[:danger] = "コメントできませんでした"
       render 'microposts/show'

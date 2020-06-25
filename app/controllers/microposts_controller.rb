@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:show, :create, :destroy]
+  before_action :logged_in_user
   before_action :correct_user, only: :destroy
 
   def show
