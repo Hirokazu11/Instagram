@@ -1,0 +1,8 @@
+<div class = "col-md-8">
+  <ol class="microposts">
+    <%= render @micropost %>
+  </ol>
+  <%= render 'comments/form', comment: @comment, micropost: @micropost %>
+  <%= render 'comments/comments', comments: @micropost.comments, micropost: @micropost %>
+</div>
+

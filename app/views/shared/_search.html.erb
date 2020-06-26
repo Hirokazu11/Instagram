@@ -1,0 +1,13 @@
+<% if current_page?(root_path) %>
+  <% provide(:path, root_path) %>
+  <%= render 'users/search_form' %>
+
+<% elsif current_page?(users_path) || current_page?(notifications_path) %>
+  <% provide(:path, users_path) %>
+  <%= render 'users/search_form' %>
+
+<% elsif current_page?(controller: "users", action: "show", id: params[:id]) %>
+  <% provide(:path, user_path) %>
+  <%= render 'users/search_form' %>
+
+<% end %>

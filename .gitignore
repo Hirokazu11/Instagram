@@ -16,13 +16,16 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/.DS_Store
+db/.DS_Store
 
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
+/public/uploads/*
 /node_modules
 /yarn-error.log
+db/fixtures/*
 
 /public/assets
 .byebug_history
