@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     :following, :followers,
   ]
   before_action :correct_user, only: [:edit, :update]
+  before_action :check_test_user, only: [:update, :destroy]
 
   def index
     @users = User.paginate(page: params[:page]).search(params[:search])
@@ -81,5 +82,13 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def check_test_user
+    @user = User.find(params[:id])
+    if @user.email = "test@example.com"
+      flash[:danger] = "ゲストユーザーは編集・削除はできません"
+      redirect_to(root_url)
+    end
   end
 end
