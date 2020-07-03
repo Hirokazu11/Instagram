@@ -1,15 +1,15 @@
 <div id="micropost-<%= micropost.id %>">
-  <button type="button" class="btn" data-toggle="modal" data-target="#postModal-<%= micropost.id %>">
-    <%= image_tag(micropost.picture.url) %>
-  </button>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-    <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
-                                    data: {confirm: "本当に削除しますか?"} %>
-    <% end %>
-  </span>
-  <%= render "likes/like", micropost: micropost %>
+  <div class="row">
+    <div class="col-md-5">
+      <button type="button" class="btn" data-toggle="modal" data-target="#postModal-<%= micropost.id %>">
+        <%= image_tag(micropost.picture.url) %>
+      </button>
+    </div>
+    <div class="col-md-7">
+      <h3 class="cook-content"><%= micropost.content %></h3>
+      <%= render "likes/like", micropost: micropost %>
+    </div>
+  </div>
 </div>
 
 <div class="modal" id="postModal-<%= micropost.id %>" role="dialog">
@@ -28,8 +28,13 @@
       <!--モーダル本文-->
       <div class="modal-body">
         <%= image_tag(micropost.picture.url) %>
+        <%= render "likes/like", micropost: micropost %>
         <%= render 'comments/comments', comments: micropost.comments, micropost: micropost %>
         <%= render 'comments/form', comment: @comment, micropost: micropost %>
+        <% if current_user?(micropost.user) %>
+          <%= link_to "削除する", micropost, method: :delete,
+                                  data: {confirm: "本当に削除しますか?"} %>
+        <% end %>
       </div>
     </div>
   </div>
