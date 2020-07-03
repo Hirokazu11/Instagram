@@ -185,11 +185,11 @@ input {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
-.user {
+  .user {
   margin-top: 5em;
   padding-top: 0;
   }
-.content {
+  .content {
     display: block;
     margin-left: 60px;
     img {
@@ -197,18 +197,18 @@ input {
       padding: 5px 0;
     }
   }
-.timestamp {
+  .timestamp {
     color: $gray-light;
     display: block;
     margin-left: 60px;
   }
-.gravatar {
+  .gravatar {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
-.glyphicon-heart {
+  .glyphicon-heart {
   color: red;
   }
 }
@@ -225,7 +225,7 @@ span.picture {
   input {
     border: 0;
   }
-}red
+}
 
 /* モーダルページ */
 .modal-header {
