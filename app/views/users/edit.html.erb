@@ -1,51 +1,55 @@
-<% provide(:title, "セッティング") %>
+<% provide(:title, "設定変更") %>
+<div id="fh5co-portfolio">
+  <div class="container">
+    <h1>設定変更</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class = 'form-group'>
+            <%= f.label :name, "名前" %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class = 'form-group'>
+            <%= f.label :user_name, "ユーザーネーム" %>
+            <%= f.text_field :user_name, class: 'form-control' %>
+          </div>
+          <div class = 'form-group'>
+            <%= f.label :email, "メールアドレス" %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class = 'form-group'>
+            <%= f.label :phone_number, "電話番号" %>
+            <%= f.text_field :phone_number, class: 'form-control' %>
+          </div>
+          <div class = 'form-group'>
+            <%= f.label :introduction, "自己紹介" %>
+            <%= f.text_field :introduction, class: 'form-control' %>
+          </div>
+          <div class = 'form-group'>
+            <%= f.label :gender, "性別" %><br>
+            <div class='gender-field'>
+              <%= f.label :man, "男" %>
+              <%= f.radio_button :gender, :man %>
+              <%= f.label :woman, "女" %>
+              <%= f.radio_button :gender, :woman %>
+            </div>
+          </div>
+          <%= f.submit "変更", class: "btn btn-primary" %>
+        <% end %>
 
-<h1>プロフィール編集</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user, url: user_path) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name, "名前" %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :user_name, "ユーザーネーム" %>
-      <%= f.text_field :user_name, class: 'form-control' %>
-
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :phone_number, "電話番号" %>
-      <%= f.text_field :phone_number, class: 'form-control' %>
-
-      <%= f.label :website, "Web Site" %>
-      <%= f.text_field :website, class: 'form-control' %>
-
-      <%= f.label :introduction, "自己紹介" %>
-      <%= f.text_field :introduction, class: 'form-control' %>
-
-      <%= f.label :gender, "性別" %><br>
-      <div class='gender-field'>
-        <%= f.label :man, "男" %>
-        <%= f.radio_button :gender, :man %>
-        <%= f.label :woman, "女" %>
-        <%= f.radio_button :gender, :woman %>
+        <div class="gravatar_edit">
+          <%= gravatar_for @user %>
+          <a href="http://gravatar.com/emails" target="_blank">画像変更</a>
+        </div>
+        <div>
+          <%= link_to "パスワード変更", "#" %>
+        </div>
+        <div>
+          <%= link_to "アカウント削除", @user, method: :delete,
+                                        data: { confirm: "本当に削除しますか?" } %>
+        </div>
       </div>
-
-      <%= f.submit "変更", class: "btn btn-primary" %>
-    <% end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">画像変更</a>
-    </div>
-    <div>
-      <%= link_to "パスワード変更", "#" %>
-    </div>
-    <div>
-      <%= link_to "アカウント削除", @user, method: :delete,
-                                    data: { confirm: "本当に削除しますか?" } %>
     </div>
   </div>
 </div>

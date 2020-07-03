@@ -33,3 +33,7 @@ db/fixtures/*
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/credentials.yml.enc
+
+# Ignore gems
+/vendor/bundle
+/vendor/.keep

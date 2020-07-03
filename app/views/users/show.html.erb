@@ -1,33 +1,41 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "プロフィール") %>
+<div id="fh5co-portfolio">
+  <div class="container">
+    <div class="row profile">
+      <div class="col-md-12">
+        <h3 class="title-profile">プロフィール</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="user-picture-box">
+              <%= gravatar_for @user %>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h4 class="show-user-name"><%= @user.name %></h4>
+            <div class="show-user-introduction">
+              <%= @user.introduction %>
+            </div>
+            <section class="stats">
+              <%= render 'shared/stats' %>
+            </section>
+            <% if current_user == @user %>
+              <div class="account-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
+            <% end %>
+            <% if current_user.admin? || (current_user == @user) %>
+              <div class="account-delete"><%= link_to "アカウント削除", user_path(@user), method: :delete,
+                                            data: { confirm: "本当に削除しますか？" } %></div>
+            <% end %>
+            <br>
+            <%= render 'follow_form' if logged_in? %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <aside class="col-md-8">
-    <section class="user_introduction">
-      <p>Web Site： <%= @user.website %></p>
-      <p>自己紹介： <%= @user.introduction %></p>
-    </section>
-  </aside>
-</div>
-<div class="container">
-  <div class="row">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    <% if @user.microposts.present? %>
+      <h3>MyCookログ (<%= @user.microposts.count %>)</h3>
       <% @microposts.each do |micropost| %>
-        <ol class="col-sm-4">
         <%= render 'microposts/modal', micropost: micropost %>
-        </ol>
       <% end %>
       <%= will_paginate @microposts %>
     <% end %>

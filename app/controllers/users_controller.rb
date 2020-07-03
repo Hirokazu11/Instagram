@@ -86,7 +86,7 @@ class UsersController < ApplicationController
 
   def check_test_user
     @user = User.find(params[:id])
-    if @user.email = "test@example.com"
+    if @user.email == "test@example.com"
       flash[:danger] = "ゲストユーザーは編集・削除はできません"
       redirect_to(root_url)
     end
