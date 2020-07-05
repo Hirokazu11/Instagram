@@ -10,6 +10,7 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :picture, presence: true
   validate :picture_size
+  validates :title, presence: true, length: { maximum: 20 }
 
   def iine(user)
     likes.create(user_id: user.id)
