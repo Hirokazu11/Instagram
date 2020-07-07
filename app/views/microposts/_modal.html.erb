@@ -6,7 +6,8 @@
       </button>
     </div>
     <div class="col-md-7">
-      <h3 class="cook-content"><%= micropost.content %></h3>
+      <h3 class="title"><%= (micropost.title) %></h3>
+      <h4 class="cook-content"><%= micropost.content %></h4>
       <%= render "likes/like", micropost: micropost %>
     </div>
   </div>
@@ -19,7 +20,7 @@
       <div class="modal-header">
         <h5 class="modal-title">
           <%= gravatar_for micropost.user %>
-          <%= micropost.content %>
+          <h3 class="title"><%= (micropost.title) %></h3>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
           <span aria-hidden="true">&times;</span>
@@ -28,6 +29,7 @@
       <!--モーダル本文-->
       <div class="modal-body">
         <%= image_tag(micropost.picture.url) %>
+        <h4><%= micropost.content %></h4>
         <%= render "likes/like", micropost: micropost %>
         <%= render 'comments/comments', comments: micropost.comments, micropost: micropost %>
         <%= render 'comments/form', comment: @comment, micropost: micropost %>

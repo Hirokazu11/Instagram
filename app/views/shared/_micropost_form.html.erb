@@ -1,6 +1,9 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
+    <%= f.label :name, "料理名" %>
+    <%= f.text_area :title, placeholder: "" %>
+    <%= f.label :name, "料理内容" %>
     <%= f.text_area :content, placeholder: "" %>
   </div>
   <span class="picture">
