@@ -82,6 +82,10 @@
   margin-top: 15px;
 }
 
+.show-user-name {
+  margin-top: 0px;;
+}
+
 .stats {
   overflow: auto;
   margin-top: 0;
@@ -203,7 +207,6 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
   }
   .gravatar {
     float: left;
@@ -211,8 +214,8 @@ input {
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  .glyphicon-heart {
-    color: red;
+  .cooking-history {
+    color: rgb(0, 204, 255);
   }
 }
 
@@ -251,4 +254,8 @@ span.picture {
 .gender-field {
   display: flex;
   width: 20%;
+}
+/* いいね */
+.fa-heart {
+  color: red;
 }

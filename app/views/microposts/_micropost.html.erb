@@ -1,9 +1,8 @@
 <li id="micropost-<%= micropost.id %>">
   <div class="row">
-    <%= link_to gravatar_for(micropost.user,size: 50), micropost.user %>
-    <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-    <h3 class="title">料理名：<%= micropost.title %></h3>
     <div class="col-md-7">
+      <h4><%= link_to gravatar_for(micropost.user,size: 50), micropost.user %></h4>
+      <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
       <span class="content">
         <%= link_to image_tag(micropost.picture.url), micropost_path(micropost) %>
       </span>
@@ -17,7 +16,11 @@
       <%= render "likes/like", micropost: micropost %>
     </div>
     <div class="col-md-5">
+      <h3 class="title">料理名：<%= micropost.title %></h3><br>
       <h4><%= micropost.content %></h4>
+      <% if micropost.user.cooking_history.present? %>
+        <h4 class="cooking-history"> # <%= micropost.user.cooking_history %></h4>
+      <% end %>
     </div>
   </div>
 </li>
