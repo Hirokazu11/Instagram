@@ -4,11 +4,11 @@
       <button type="button" class="btn" data-toggle="modal" data-target="#postModal-<%= micropost.id %>">
         <%= image_tag(micropost.picture.url) %>
       </button>
+      <%= render "likes/like", micropost: micropost %>
     </div>
     <div class="col-md-7">
-      <h3 class="title"><%= (micropost.title) %></h3>
+      <h3 class="title">料理名：<%= micropost.title %></h3>
       <h4 class="cook-content"><%= micropost.content %></h4>
-      <%= render "likes/like", micropost: micropost %>
     </div>
   </div>
 </div>
@@ -18,10 +18,10 @@
     <div class="modal-content">
       <!--モーダルヘッダー-->
       <div class="modal-header">
-        <h5 class="modal-title">
+        <h3 class="modal-title">
           <%= gravatar_for micropost.user %>
-          <h3 class="title"><%= (micropost.title) %></h3>
-        </h5>
+          <p class="title">料理名：<%= micropost.title %></p>
+        </h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -30,7 +30,7 @@
       <div class="modal-body">
         <%= image_tag(micropost.picture.url) %>
         <h4><%= micropost.content %></h4>
-        <%= render "likes/like", micropost: micropost %>
+        <%= render "likes/like", micropost: micropost %><br>
         <%= render 'comments/comments', comments: micropost.comments, micropost: micropost %>
         <%= render 'comments/form', comment: @comment, micropost: micropost %>
         <% if current_user?(micropost.user) %>

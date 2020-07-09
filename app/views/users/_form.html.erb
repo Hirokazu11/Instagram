@@ -13,6 +13,12 @@
     <%= f.email_field :email, class: 'form-control' %>
   </div>
   <div class = 'form-group'>
+    <%= f.label :cook_history, "自炊歴" %>
+    <%= f.select :cooking_history, [["ビギナー(0年)", "ビギナー(0年)"], ["ルーキー(1年)", "ルーキー(1年)"],
+                                    ["エース(2年)", "エース(2年)"], ["ベテラン(3年)", "ベテラン(3年)"],
+                                    ["マスター(4年以上)", "マスター(4年以上)"]], {}, class: 'form-control' %>
+  </div>
+  <div class = 'form-group'>
     <%= f.label :password, "パスワード" %>
     <%= f.password_field :password, class: 'form-control' %>
   </div>

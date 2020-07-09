@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_062624) do
+ActiveRecord::Schema.define(version: 2020_07_07_153111) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_062624) do
     t.string "introduction"
     t.string "phone_number"
     t.integer "gender"
+    t.string "cooking_history"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

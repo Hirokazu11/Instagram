@@ -100,7 +100,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      User.where(['name LIKE ?', "%#{search}%"])
+      User.where(['name LIKE ? OR cooking_history LIKE ?', "%#{search}%", "%#{search}%"])
     else
       User.all
     end
