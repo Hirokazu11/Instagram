@@ -1,24 +1,37 @@
-# README
+# CookGrowth
+自炊料理を投稿して仲間と共有できるサービスです。<br>
+本アプリは<br>
+・自炊歴から仲間を探せるため、同じ境遇の仲間と繋がりやすい。<br>
+・自分の投稿に自炊歴が表示されるため、初歩的な料理でも気軽に投稿できる。<br>
+という特徴があります。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービスを作った思い
+コンセプト：「自炊ビギナーと繋がりたい！」<br>
+料理を補助するレシピアプリ等はたくさんありますが、そもそもそれを活用する方は意識が高い人であり、<br>
+ビギナーに一番必要なことはモチベーションを維持するための仕組みです。<br>
+エンジニアがコミュニティを築いて尊重しながらも切磋琢磨するのと同様に、<br>
+同じ境遇の仲間がいれば自炊も継続できるはずです。<br>
+本アプリはきちんと継続して記録したくなる仕組みを作ることを目的としています。
 
-Things you may want to cover:
+## 機能
+* 作った料理を投稿
+* 画像を正方形にして投稿（CarrierWaveを使用）
+* 検索（ユーザー名、投稿内容、自炊歴で検索）
+* フォロー
+* お気に入り機能
+* コメント
+* 通知（お気に入りorコメントがあった場合）
+* ログイン
+* ログイン状態の保持
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 環境
+■フレームワーク<br>
+　Ruby on Rails<br>
+■インフラ<br>
+　AWS EC2<br>
+■データベース<br>
+　AWS RDS for MySQL<br>
+■アプリケーションサーバー<br>
+　Unicorn<br>
+■WEBサーバー<br>
+　Nginx<br>
