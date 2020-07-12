@@ -37,6 +37,16 @@
   position: fixed;
 }
 
+@media screen and (max-width: 768px) {
+  .col-xs-9 {
+    width: 100%;
+    font-size: large;
+  }
+  .col-xs-3 {
+    width: 100%;
+  }
+}
+
 //// フッター ////
 #fh5co-footer {
   margin-top: 3em;
