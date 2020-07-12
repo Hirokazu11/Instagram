@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
 
   def terms
   end
+
+  def community
+  end
 end

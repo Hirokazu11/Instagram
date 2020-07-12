@@ -1,0 +1,19 @@
+<% provide(:title, "ジストモ交流会") %>
+<div class="cook-community">
+  <div class="container">
+    <h1>ジストモ交流会</h1>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-3">
+        <h3>毎週水曜日19時〜20時は自炊共有会!</h3>
+        <h3>自分で作った料理を食べながらみんなで交流しましょう〜♪</h3>
+        <h3>途中退出や再入場は全然問題ありません。お気軽にご参加ください！</h3>
+        <% if logged_in? %>
+          <%= link_to '#', target: :_blank do %>
+            <i class="fa fa-video-camera fa-3x" aria-hidden="true"><span> zoom</span></i>
+          <% end %>
+        <% else %>
+          <h2><%= link_to  "ログインしてください", login_path %></h2>
+        <% end %>
+      </div>
+    </div>
+</div>
