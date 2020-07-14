@@ -19,6 +19,9 @@
 /.DS_Store
 db/.DS_Store
 
+# 環境変数
+/.env
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
@@ -37,3 +40,6 @@ db/fixtures/*
 # Ignore gems
 /vendor/bundle
 /vendor/.keep
+
+# mysql
+cookgrowth-mtsql_production

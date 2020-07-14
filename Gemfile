@@ -13,7 +13,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'font-awesome-sass', '~> 5.4.1'
-
+gem 'dotenv-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails', '4.3.1'
 gem 'turbolinks', '~> 5'
@@ -48,6 +48,10 @@ end
 group :production do
   gem 'pg',  '0.20.0'
   gem 'fog', '1.42'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
