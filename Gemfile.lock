@@ -85,6 +85,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     diff-lcs (1.4.2)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -481,6 +482,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
+  database_cleaner
   dotenv-rails
   factory_bot_rails (~> 4.10.0)
   faker (= 1.7.3)

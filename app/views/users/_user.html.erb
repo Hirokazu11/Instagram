@@ -5,7 +5,7 @@
     <span> | <%= user.cooking_history %></span>
   <% end %>
   <% if current_user.admin? && !current_user?(user) %>
-    <p><%= link_to "delete", user, method: :delete,
+    <p><%= link_to "削除", user, method: :delete,
                                   data: { confirm: "本当に削除しますか?" } %></p>
   <% end %>
 </li>
