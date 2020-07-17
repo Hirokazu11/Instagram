@@ -44,7 +44,7 @@ RSpec.describe "Users", type: :system, js: true do
     before do
       login_for_system(user)
       click_on "アカウント"
-      click_on "設定変更"
+      visit edit_user_path(user)
     end
 
     it "有効なパラメータの場合、ユーザー更新ができる" do
