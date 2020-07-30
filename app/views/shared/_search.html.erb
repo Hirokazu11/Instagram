@@ -1,15 +1,17 @@
 <% if current_page?(root_path) %>
   <% provide(:path, root_path) %>
+  <% provide(:default, "投稿内容") %>
   <%= render 'users/search_form' %>
 
-<% elsif current_page?(users_path) || current_page?(notifications_path) %>
+<% elsif current_page?(users_path) %>
   <% provide(:path, users_path) %>
+  <% provide(:default, "ユーザー名") %>
   <%= render 'users/search_form' %>
 
-<% elsif current_page?(community_path) %>
+<% elsif current_page?(community_path) || current_page?(notifications_path) %>
 
 <% elsif current_page?(controller: "users", action: "show", id: params[:id]) %>
   <% provide(:path, user_path) %>
+  <% provide(:default, "投稿内容") %>
   <%= render 'users/search_form' %>
-
 <% end %>
